@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <style>
+    /* Base reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Segoe UI", sans-serif;
+      color: #fff;
+    }
+
+    /* Navigation */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 15px 0;
+  z-index: 1000;
+  transition: transform 0.3s ease-in-out;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.navbar.hide-on-scroll {
+  transform: translateY(-100%);
+}
+
+
+
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .logo img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    /* Menu */
+    .nav-menu {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin-left: auto;
+      margin-right: 30px; /* Adjust this value to move menu closer or further */
+    }
+
+    .nav-menu li a {
+      text-decoration: none;
+      color: #ccc;
+      font-size: 16px;
+      position: relative;
+      padding-bottom: 5px;
+      transition: color 0.3s ease;
+    }
+
+    .nav-menu li a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0%;
+      height: 2px;
+      background-color: #fff;
+      transition: width 0.4s ease;
+      transform-origin: left;
+    }
+
+    .nav-menu li a:hover,
+    .nav-menu li a.active {
+      color: #fff;
+    }
+
+    .nav-menu li a:hover::after,
+    .nav-menu li a.active::after {
+      width: 100%;
+    }
+
+.contact-button {
+  background:linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+  color: #000;
+  padding: 10px 24px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 4px;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: inline-block;
+}
+
+.contact-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+    /* Hamburger icon styles */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      margin-left: auto;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: #fff;
+      margin: 4px 0;
+      transition: all 0.3s ease;
+    }
+
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.95);
+    position: absolute;
+    top: 61px;
+    left: 0;
+    padding: 25px;
+    border-radius: 8px;
+    z-index: 999;
+    width: 100%;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .contact-button {
+    display: none;
+  }
+ .info-section {
+    padding: 20px 20px !important;
+}
+  .info-container,
+  .info-container.reverse {
+    display: flex !important;
+    flex-direction: column !important;
+      gap:20px;
+  }
+}
+
+.hero {
+  height: 100vh;
+  background-image: url('./1.jpg'); /* Replace with your image path */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Dark overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.hero-content {
+  color: white;
+  max-width: 800px;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.hero-content p {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: #ddd;
+}
+
+      .info-section {
+  padding: 80px 20px;
+}
+
+.info-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex-direction: row;
+}
+
+.info-container.reverse {
+  flex-direction: row-reverse;
+}
+
+.info-image {
+  flex: 1 1 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.info-image img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.info-text {
+  flex: 1 1 50%;
+  color: #000;
+}
+
+.info-text h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.info-text p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #000;
+}
+.learn-more-button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1.2rem;
+  background-color: #444; /* gold-like tone */
+  color: #FFF;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 6px;
+  transition: background-color 0.3s;
+}
+.learn-more-button:hover {
+  background-color: silver;
+}
+
+      .footer {
+      background: rgba(0, 0, 0, 0.8);
+      color: #fff;
+      padding: 40px 20px;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .footer-column {
+      flex: 1 1 200px;
+      margin: 10px;
+    }
+
+    .footer-column h4 {
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 8px;
+    }
+
+    .footer-column ul li a {
+      text-decoration: none;
+      color: #ccc;
+      transition: color 0.3s;
+    }
+
+    .footer-column ul li a:hover {
+      color: #444;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 20px;
+      font-size: 14px;
+    }
+
+      .footer-column {
+        margin-bottom: 20px;
+      }
+  </style>
+  <title>AJConnect</title>
+</head>
+    <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const navbar = document.querySelector('.navbar');
+      const navMenu = document.getElementById('nav-menu');
+      const hamburger = document.getElementById('hamburger');
+    let lastScrollY = window.scrollY;
+    const threshold = 10;
+
+    window.addEventListener('scroll', () => {
+      const currentScrollY = window.scrollY;
+
+      if (Math.abs(currentScrollY - lastScrollY) < threshold) return;
+
+      if (currentScrollY > lastScrollY) {
+        // Scrolling down
+        navbar.classList.add('hide-on-scroll');
+      } else {
+        // Scrolling up
+        navbar.classList.remove('hide-on-scroll');
+      }
+
+      lastScrollY = currentScrollY;
+    });
+      // Toggle mobile menu
+      hamburger.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+      });
+  });
+</script>
+
+
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a class="logo">
+        <img src="./logo-silver.png" alt="AJConnect logo"/>
+      </a>
+        <div class="hamburger" id="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#">Our Goal</a></li>
+        <li><a href="#">Our Service</a></li>
+        <li><a href="#">Our Team</a></li>
+        <li><a href="#">Support</a></li>
+      </ul>
+      <a href="#" class="contact-button">Contact us</a>
+    </div>
+  </nav>
+<section class="hero">
+  <div class="hero-overlay">
+    <div class="hero-content">
+      <h1>Connecting You With the Right Solution</h1>
+      <p>At AJConnect, we guide clients toward tailored solutions that meet their business goals.
+        we identify and implement the exact tools and strategies required to move forward confidently.</p>
+    </div>
+  </div>
+</section>
+   <section class="info-section">
+  <div class="info-container reverse">
+    <div class="info-image">
+      <img src="./requirement.jpg" alt="Description">
+    </div>
+    <div class="info-text">
+      <h2>Client-Centered IT Solutions</h2>
+    <p>We focus on what matters most—your business goals. We listen, understand, and deliver tailored IT services that align with your priorities, not just standard practices.</p>
+    <a href="#learn-more-client-it" class="learn-more-button">Learn More</a>
+  </div>
+  </div>
+</section>
+
+<section class="info-section">
+  <div class="info-container">
+    <div class="info-image">
+      <img src="./support.jpg" alt="Description">
+    </div>
+    <div class="info-text">
+      <h2>Non-Standard, Tailored Solutions</h2>
+    <p>Our solutions are custom-built—not copy-pasted. We develop strategies and tools that meet your unique business challenges, ensuring fit, flexibility, and results.</p>
+    <a href="#learn-more-tailored" class="learn-more-button">Learn More</a>
+    </div>
+  </div>
+</section>
+       <section class="info-section">
+  <div class="info-container reverse">
+    <div class="info-image">
+      <img src="./requirement.jpg" alt="Description">
+    </div>
+    <div class="info-text">
+      <h2>Support for Startups & Small Businesses</h2>
+    <p>Doctors, clinics, and small offices trust us to build smart, budget-conscious IT and network foundations that scale as they grow.</p>
+    <a href="#learn-more-client-it" class="learn-more-button">Learn More</a>
+  </div>
+  </div>
+</section>
+
+<section class="info-section">
+  <div class="info-container">
+    <div class="info-image">
+      <img src="./support.jpg" alt="Description">
+    </div>
+    <div class="info-text">
+      <h2>Network Topology & Design</h2>
+    <p>We help you design your network with the right architecture and components, tailored to your operations and future growth—all while staying on budget.</p>
+    <a href="#learn-more-tailored" class="learn-more-button">Learn More</a>
+    </div>
+  </div>
+</section>
+
+           <section class="info-section">
+  <div class="info-container reverse">
+    <div class="info-image">
+      <img src="./requirement.jpg" alt="Description">
+    </div>
+    <div class="info-text">
+      <h2>Video System Services</h2>
+    <p>We install, configure, monitor, and maintain video systems. Need a support case opened? We’ll even do that for you, saving time and complexity.</p>
+    <a href="#learn-more-client-it" class="learn-more-button">Learn More</a>
+  </div>
+  </div>
+</section>
+
+<section class="info-section">
+  <div class="info-container">
+    <div class="info-image">
+      <img src="./support.jpg" alt="Description">
+    </div>
+    <div class="info-text">
+      <h2>Call Quality Analytics & Troubleshooting</h2>
+    <p>No guessing—just answers. Using advanced tools like Wireshark, we dive deep into your network to uncover real causes behind call drops or poor quality.</p>
+    <a href="#learn-more-tailored" class="learn-more-button">Learn More</a>
+    </div>
+  </div>
+</section>
+    
+           <section class="info-section">
+  <div class="info-container reverse">
+    <div class="info-image">
+      <img src="./requirement.jpg" alt="Description">
+    </div>
+    <div class="info-text">
+      <h2>Poly & Polycom Infrastructure Installation</h2>
+    <p>We handle the deployment, configuration, and support of Poly and Polycom infrastructure—from phones to full-room systems.</p>
+    <a href="#learn-more-client-it" class="learn-more-button">Learn More</a>
+  </div>
+  </div>
+</section>
+
+<section class="info-section">
+  <div class="info-container">
+    <div class="info-image">
+      <img src="./support.jpg" alt="Description">
+    </div>
+    <div class="info-text">
+      <h2>Consultation & Equipment Matching</h2>
+    <p>Get expert advice on what to buy, how to set it up, and how to get the most from your investment. We match solutions to your exact needs.</p>
+    <a href="#learn-more-tailored" class="learn-more-button">Learn More</a>
+    </div>
+  </div>
+</section>
+
+     <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-column">
+        <a class="logo">
+        <img src="./logo-gold.png" alt="AJConnect logo"/>
+      </a>
+      </div>
+      <div class="footer-column">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Follow Us</h4>
+        <ul>
+          <li><a href="#">LinkedIn</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+  <small>&copy; 2025 AJConnect. All rights reserved.</small>
+</div>
+
+  </footer>
+</body>
+</html>
