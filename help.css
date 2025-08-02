@@ -167,6 +167,7 @@ body {
     /*position: fixed;*/
     background: rgba(0, 0, 0, 0.8);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    padding: 15px 0;
         }
 .nav-menu.active {
         display: flex;
