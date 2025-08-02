@@ -6,6 +6,7 @@
     const threshold = 10;
 
     window.addEventListener('scroll', () => {
+      if (window.innerWidth > 768) return;
       const currentScrollY = window.scrollY;
 
       if (Math.abs(currentScrollY - lastScrollY) < threshold) return;
