@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./icon.png" type="image/png">
+    <link rel="stylesheet" href="./help.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="./help.js"></script>
+    <title>Help</title>
+</head>
+<body>
+    <nav class="navbar" role="navigation" aria-label="Main Navigation">
+        <div class="nav-container">
+            <a class="logo">
+                <img src="./logo-silver.png" alt="AJConnect logo"/>
+            </a>
+            <div class="hamburger" id="hamburger">
+                <div></div><div></div><div></div>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="./support.html">Login</a></li>
+                <li><a href="./register.html">Register</a></li>
+                <li><a href="./help.html" class="active">Need Help</a></li>
+                <li><a href="./index.html">Home</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="help-form">
+        <div class="form-content">
+            <form id="helpForm" enctype="multipart/form-data">
+                <div class="result-section">
+            <p id="resultMessage"></p>
+            <div class="spinner" id="loadingSpinner" role="status" aria-label="Loading" style="display:none;"></div>
+        </div>
+        <div class="field-group">
+            <span class="fa fa-user" aria-hidden="true"></span>
+            <div class="input-field">
+                <input type="text" id="name" name="name" required="" placeholder="Enter your name">
+            </div>
+        </div>
+        <div class="field-group">
+            <span class="fa fa-envelope" aria-hidden="true"></span>
+            <div class="input-field">
+                <input type="email" id="email" name="email" required="" placeholder="Enter your email address">
+            </div>
+        </div>
+        <div class="field-group">
+            <span class="fa fa-list" aria-hidden="true"></span>
+            <div class="input-field">
+                <select id="subject" name="subject" required="">
+                        <option value="">Select an option</option>
+                        <option value="Account related issue">Account related issue</option>
+                        <option value="Cases related issue">Cases related issue</option>
+                        <option value="Report related issue">Report related issue</option>
+                        <option value="Report vulnerability">Report vulnerability</option>
+                        <option value="Account deletion request">Account deletion request</option>
+                        <option value="Feedback">Feedback</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                </div>
+                <div class="field-group">
+            <span class="fa fa-comment" aria-hidden="true"></span>
+            <div class="input-field">
+                <textarea id="message" name="message" rows="4" required="" placeholder="Describe your issue..."></textarea>
+            </div>
+        </div>
+                <div class="field-group">
+                    <span class="fa fa-paperclip" aria-hidden="true"></span>
+                    <div class="input-field">
+                <input type="file" id="attachment" name="attachment" accept=".jpg,.jpeg,.png,.pdf,.doc,.docx">
+            </div>
+                </div>
+                <div class="input-field">
+            <button class="btn" type="submit">Send Message</button>
+        </div>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="links">
+            <ul class="links-unordered-list">
+                <li><a href="./privacy.html">Privacy Policy</a></li>
+                <li><a href="./terms.html">Terms of Use</a></li>
+            </ul>
+            <div class="copyright">
+                <p>&copy; 2025 AJConnect. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
