@@ -23,7 +23,7 @@ html {
 body {
     font-family: "Segoe UI", sans-serif;
     color: #fff;
-    background-image: url('/image/support-page.jpg'); /* Replace with your image path */
+    background-image: url('./support-page.jpg'); /* Replace with your image path */
     background-size: cover;
     position: relative;
     background-repeat: no-repeat;
